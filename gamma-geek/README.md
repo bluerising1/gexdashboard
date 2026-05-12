@@ -6,6 +6,8 @@ A local Streamlit analytics dashboard for **Indian index options** that visualiz
 - Loads sample option-chain style data (or FYERS placeholder source).
 - Calculates Black-Scholes gamma by strike.
 - Converts gamma into **Estimated Gamma Exposure** proxies using OI and lot size.
+- Shows KPIs, charts, alerts, custom strategy interpretation zones, and an intraday timeline from 09:00 to 15:15.
+- Includes a dedicated tab to display a shared reference screenshot.
 - Shows KPIs, charts, alerts, and strategy interpretation zones.
 
 ## What GEX means
@@ -20,6 +22,17 @@ Public option chain data does **not** reveal exact dealer inventory, client-deal
 3. `venv\Scripts\activate` (Windows)
 4. `pip install -r requirements.txt`
 5. `streamlit run app.py`
+
+## Timeline and expiry behavior
+- Use the sidebar slider for market time between **09:00 and 15:15**.
+- Expiry profiles are differentiated in the intraday timeline:
+  - Current Weekly: highest intraday weighting
+  - Next Weekly: medium intraday weighting
+  - Monthly: lowest intraday weighting
+
+## Shared reference image tab
+- Put your screenshot at: `gamma-geek/assets/reference_dashboard.png`
+- Open the **Reference Layout** tab in the app.
 
 ## FYERS API credentials (later)
 1. Copy `.env.example` to `.env`

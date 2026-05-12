@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import datetime, timedelta
+
 import pandas as pd
 
 
@@ -20,3 +22,23 @@ def format_units(value: float, units: str) -> str:
     if units == "Lakhs":
         return f"₹{value / 1e5:,.2f} L"
     return f"₹{value:,.0f}"
+
+
+def market_minutes_list() -> list[datetime]:
+    start = datetime.strptime("09:00", "%H:%M")
+    end = datetime.strptime("15:15", "%H:%M")
+    vals: list[datetime] = []
+    cur = start
+    while cur <= end:
+        vals.append(cur)
+        cur += timedelta(minutes=5)
+    return vals
+
+
+def expiry_timeline_weight(expiry_label: str, minute_index: int, total_points: int) -> float:
+    progress = minute_index / max(total_points - 1, 1)
+    if expiry_label == "Current Weekly":
+        return 1.0 + 0.20 * progress
+    if expiry_label == "Next Weekly":
+        return 1.0 + 0.10 * progress
+    return 1.0 + 0.05 * progress
