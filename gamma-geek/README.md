@@ -8,6 +8,7 @@ A local Streamlit analytics dashboard for **Indian index options** that visualiz
 - Converts gamma into **Estimated Gamma Exposure** proxies using OI and lot size.
 - Shows KPIs, charts, alerts, custom strategy interpretation zones, and an intraday timeline from 09:00 to 15:15.
 - Includes a dedicated tab to display a shared reference screenshot.
+- Shows KPIs, charts, alerts, and strategy interpretation zones.
 
 ## What GEX means
 Gamma Exposure is an estimate of how option positioning may influence hedging behavior around spot and key strikes.
